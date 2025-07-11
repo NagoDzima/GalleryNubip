@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('third-gallery'),
         document.getElementById('fourth-gallery')
     ];
-    const fon = document.getElementById('fon');
+    document.getElementById('fon').addEventListener("click", closeAllGalleries);
+    document.getElementById('close-button').addEventListener('click', closeAllGalleries);
 
     // Helper to close all galleries
     function closeAllGalleries() {
@@ -36,6 +37,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add click event to fon to close gallery
-    fon.addEventListener('click', closeAllGalleries);
 });

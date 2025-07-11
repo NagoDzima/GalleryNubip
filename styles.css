@@ -101,7 +101,7 @@ body {
     transform: scale(1);
     pointer-events: auto;
 }
-.gallery .close-button {
+.gallery #close-button {
     position: absolute;
     top: 0;
     right: 0;
@@ -114,13 +114,14 @@ body {
     align-items: center;
     justify-content: center;
     transition: 100ms;
+    z-index: 2;
 }
 
-.gallery .close-button:hover {
+.gallery #close-button:hover {
     background-color: #f77;
     border: 1px solid #f77;
 }
-.gallery .close-button .left {
+.gallery #close-button .left {
     width: 15px;
     height: 1px;
     background-color: #f77;
@@ -129,10 +130,10 @@ body {
     border-radius: 1px;
     transition: 100ms;
 }
-.gallery .close-button:hover .left {
+.gallery #close-button:hover .left {
     background-color: #fff;
 }
-.gallery .close-button .right {
+.gallery #close-button .right {
     width: 15px;
     height: 1px;
     background-color: #f77;
@@ -141,7 +142,7 @@ body {
     border-radius: 1px;
     transition: 100ms;
 }
-.gallery .close-button:hover .right {
+.gallery #close-button:hover .right {
     background-color: #fff;
 }
 
