@@ -13,6 +13,7 @@ body {
 }
 
 #logo {
+    position: relative;
     filter: drop-shadow(2px 2px 2px #00000066);
     left: 20px;
     top: 20px;
