@@ -17,16 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Helper to close all galleries
     function closeAllGalleries() {
         galleries.forEach(gallery => {
-            gallery.style.display = 'none';
+            gallery.classList.remove('show');
         });
-        fon.style.display = 'none';
+        fon.classList.remove('show');
     }
 
     // Open gallery by index
     function openGallery(index) {
         closeAllGalleries();
-        galleries[index].style.display = 'grid';
-        fon.style.display = 'block';
+        galleries[index].classList.add('show');
+        fon.classList.add('show');
     }
 
     // Add click events to buttons

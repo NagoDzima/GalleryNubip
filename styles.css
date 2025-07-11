@@ -2,14 +2,21 @@ html {
     background-image: url('./img/photo_5442759879967242821_y.jpg');
 }
 body {
-    background-color: #ffffff77;
-    backdrop-filter: blur(2px);
     margin: 0;
-    padding: 10px;
+    padding: 1%;
     box-sizing: border-box;
     color: #333766;
     text-shadow: 1px 1px 2px #95caef55;
-    height: 742px;
+}
+#background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: #fff7;
+    backdrop-filter: blur(3px);
 }
 
 #logo {
@@ -17,8 +24,12 @@ body {
     filter: drop-shadow(2px 2px 2px #00000066);
     left: 20px;
     top: 20px;
+    z-index: 0;
+    width: 50%;
 }
 .container {
+    position: absolute;
+    top: 28%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 5%;
@@ -52,8 +63,18 @@ body {
     width: 100%;
     height: 100%;
     background-color: #00000077;
-    display: none;
     z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    display: block;
+}
+#fon.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+#fon:not(.show) {
+    display: block;
 }
 .gallery {
     display: grid;
@@ -69,18 +90,59 @@ body {
     justify-self: center;
     background-color: #fff;
     z-index: 1;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    display: grid;
 }
-#first-gallery {
-    display: none;
+.gallery.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
 }
-#second-gallery {
-    display: none;
+.gallery .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 0 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 100ms;
 }
-#third-gallery {
-    display: none;
+
+.gallery .close-button:hover {
+    background-color: #f77;
+    border: 1px solid #f77;
 }
-#fourth-gallery {
-    display: none;
+.gallery .close-button .left {
+    width: 15px;
+    height: 1px;
+    background-color: #f77;
+    position: absolute;
+    rotate: 45deg;
+    border-radius: 1px;
+    transition: 100ms;
+}
+.gallery .close-button:hover .left {
+    background-color: #fff;
+}
+.gallery .close-button .right {
+    width: 15px;
+    height: 1px;
+    background-color: #f77;
+    position: absolute;
+    rotate: -45deg;
+    border-radius: 1px;
+    transition: 100ms;
+}
+.gallery .close-button:hover .right {
+    background-color: #fff;
 }
 
 footer {
@@ -88,12 +150,48 @@ footer {
     font-size: 15px;
     position: absolute;
     height: 40px;
+    left: 0;
     bottom: 0;
     background-color: #95caef;
     text-align: center;
     width: 100%;
-    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (width <= 1100px){
+    .container .button p {
+        font-size: 80%;
+    }
+}
+@media screen and (width <= 900px){
+    .container .button p {
+        font-size: 60%;
+    }
+}
+@media screen and (width <= 700px){
+    .container {
+        justify-self: center;
+        max-width: 60%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (width <= 500px){
+    .container {
+        position: relative;
+        top: 0;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    footer {
+        position: relative;
+        bottom: -10px;
+        left: -10px;
+        width: 102%;
+    }
+    #background {
+        height: 115%;
+    }
 }
