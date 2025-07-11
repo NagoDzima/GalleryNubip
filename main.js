@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
             gallery.classList.remove('show');
         });
         fon.classList.remove('show');
+        document.getElementById('close-button').classList.remove('show');
+        document.getElementById('galleries').classList.remove('show');
     }
 
     // Open gallery by index
@@ -28,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
         closeAllGalleries();
         galleries[index].classList.add('show');
         fon.classList.add('show');
+        document.getElementById('close-button').classList.add('show');
+        document.getElementById('galleries').classList.add('show');
     }
 
     // Add click events to buttons
@@ -36,5 +40,4 @@ document.addEventListener('DOMContentLoaded', function() {
             openGallery(idx);
         });
     });
-
 });
